@@ -6,6 +6,7 @@ function handler(event) {
     
      var response403 = {
         statusCode: 403,
+        statusDescription: 'Not Authorised',
         headers: {
             'cloudfront-functions': { value: 'generated-by-CloudFront-Functions' }
         }
@@ -16,29 +17,20 @@ function handler(event) {
     var referer = request.headers.referer;
     
     if (referer == undefined || referer == null) {
+        response403['test'] = 'no refer';
         return response403;
     }
+
+
+    response403['test'] = referer;
     if (referer.value != "期望的域名") {
         return response403;
     }
     
-    // header validation
-    var headers = response.headers;
-    // 期望验证的内容
-    c_value = headers['自定义key']
-    if (c_value == undefined || c_value == null) {
-        return response403;
-    }
-    if (c_value != "期望的值") {
-        return response403;
-    }
-    
-
+   
     // Set the cache-control header
     headers['cache-control'] = {value: 'public, max-age=63072000;'};
 
-    
-    
     
     return request；
     

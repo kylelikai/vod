@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="referrer" content="no-referrer">
+    <title>xgplayer</title>
+    <style type="text/css">
+      html, body {width:100%;height:100%;margin:auto;overflow: hidden;}
+    </style>
+  </head>
+  <body>
+    <div id="mse"></div>
+    <script src="//cdn.jsdelivr.net/npm/xgplayer/browser/index.js" charset="utf-8"></script>
+    <script src="//cdn.jsdelivr.net/npm/xgplayer-hls.js/browser/index.js" charset="utf-8"></script>
+    <script>
+      let player = new HlsJsPlayer({
+        id: 'mse',
+        cors: true,
+        fitVideoSize: 'auto',
+        ignores: ['definition'],
+        //url: 'https://d2gj7bgsh386vd.cloudfront.net/7617a0b5-73ac-4c53-a20e-e6b0c986fd5e/HLS/7617a0b5-73ac-4c53-a20e-e6b0c986fd5e.m3u8'
+        //"url": "https://d2gj7bgsh386vd.cloudfront.net/d26ac041-931a-4d32-9eff-499d6f7ab940/HLS/d26ac041-931a-4d32-9eff-499d6f7ab940.m3u8"
+        //"url": "https://d11ym8tfdoxck8.cloudfront.net/bbb/HLS/bbb_270.m3u8"
+        url: 'https://d11ym8tfdoxck8.cloudfront.net/video/simple/HLS/simple_480.m3u8'
+
+      });
+    </script>
+  </body>
+</html>

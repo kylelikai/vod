@@ -6,6 +6,7 @@ function handler(event) {
     
      var response = {
         statusCode: 403,
+        statusDescription: 'Not Authorised',
         headers: {
             'cloudfront-functions': { value: 'generated-by-CloudFront-Functions' }
         }
@@ -24,14 +25,9 @@ function handler(event) {
     if (c_value != "hikvision") {
         return response;
     };
-    console.log('aaa');
 
-
+    
     // Set the cache-control header
     headers['cache-control'] = {value: 'public, max-age=63072000;'};
     return request;
 }
-
-
-
-
